@@ -10,7 +10,7 @@ You can find it on `pypi`_ as ``pyramid_odesk``. Also don't forget to check the 
 .. _`odesk`: https://odesk.com/
 .. _`pyramid`: http://www.pylonsproject.org/
 .. _`pypi`: http://pypi.python.org/pypi/pyramid_odesk
-.. _`documentation`: https://pyramid_odesk.readthedocs.org/en/latest/
+.. _`documentation`: http://pythonhosted.org/pyramid_odesk/
 
 
 Requirements
