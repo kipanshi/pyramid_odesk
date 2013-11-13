@@ -1,21 +1,22 @@
+=============
 pyramid_odesk
 =============
 
-`pyramid_odesk` allows your users to authorize via odesk_
-on your pyramid_ project.
+``pyramid_odesk`` allows your users to authorize via `odesk`_
+on your `pyramid`_ project.
 
-You can find it on pypi_ as `pyramid_odesk`. Also don't forget to check the documentation_.
+You can find it on `pypi`_ as ``pyramid_odesk``. Also don't forget to check the `documentation`_.
 
-.. _odesk: https://odesk.com/
-.. _pyramid: http://www.pylonsproject.org/
-.. _pypi: http://pypi.python.org/pypi/pyramid_odesk
-.. _documentation: https://pyramid_odesk.readthedocs.org/en/latest/
+.. _`odesk`: https://odesk.com/
+.. _`pyramid`: http://www.pylonsproject.org/
+.. _`pypi`: http://pypi.python.org/pypi/pyramid_odesk
+.. _`documentation`: https://pyramid_odesk.readthedocs.org/en/latest/
 
 
 Requirements
 ------------
-`pyramid-redis-sessions`_ is used to store session in Redis_ database, so you need to install
-Redis_ and configure it to listen to port ``127.0.0.1``.
+`pyramid-redis-sessions`_ is used to store session in `Redis`_ database, so you need to install
+`Redis`_ and configure it to listen to port ``127.0.0.1``.
 
 Other packages are installed automatically::
 
@@ -23,7 +24,7 @@ Other packages are installed automatically::
     python-odesk
 
 .. _`pyramid-redis-sessions`: https://github.com/ericrasmussen/pyramid_redis_sessions
-.. _Redis: http://redis.io/
+.. _`Redis`: http://redis.io/
 
 
 Installation
@@ -63,8 +64,8 @@ Then in your project's ``__init__.py`` define the following function::
         # All authenticated users have ``view`` permission
         return 'view'
 
-This function should return list of ACL group pricipals_ or None if user
-is not allowed to have any access groups. See pyramid documentation for security_ and tutorial_.
+This function should return list of ACL group `principals`_ or None if user
+is not allowed to have any access groups. See pyramid documentation for `security`_ and `tutorial`_.
 
 Define a RootFactory in your ``models.py``::
 
@@ -102,9 +103,9 @@ Now register ``get_acl_group()`` function in the config registry to make authori
 
         return config.make_wsgi_app()
 
-.. _principals: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/glossary.html#term-principal
-.. _security: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/security.html
-.. _tutorial: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/tutorials/wiki2/authorization.html
+.. _`principals`: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/glossary.html#term-principal
+.. _`security`: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/security.html
+.. _`tutorial`: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/tutorials/wiki2/authorization.html
 
 You can provide custom ``forbidden.jinja2`` template using followin setting in your ``*.ini`` file::
 
