@@ -125,5 +125,7 @@ def oauth_callback(request):
 
 def forbidden(request):
     if unauthenticated_userid(request):
-        return HTTPFound('/')
-    return {}
+        # User is authenticated, but not authorized,
+        # show logout link instead of login link
+        return {'authenticated': True}
+    return {'authenticated': False}

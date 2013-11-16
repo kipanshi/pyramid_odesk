@@ -68,5 +68,4 @@ def includeme(config):
 
     # A simple 403 view, with a login button.
     config.add_forbidden_view(
-        forbidden, renderer=settings.get('odesk.forbidden_template',
-                                         'templates/forbidden.jinja2'))
+        forbidden, renderer='templates/forbidden.jinja2')

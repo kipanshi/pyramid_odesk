@@ -21,7 +21,12 @@ Requirements
 Other packages are installed automatically::
 
     pyramid
+    pyramid_redis_sessions
     python-odesk
+
+To activate ``jinja2`` renderer, install::
+
+    pip install pyramid_jinja2
 
 .. _`pyramid-redis-sessions`: https://github.com/ericrasmussen/pyramid_redis_sessions
 .. _`Redis`: http://redis.io/
@@ -44,6 +49,9 @@ You need to create `oDesk API keys`_ of the type ``Web`` and set appropriate per
 
 Usage
 -----
+You can take a look at the `pyramid_odesk_example`_ application or use
+the instructions below.
+
 Include following settings in your ``*.ini`` file::
 
     [app:main]
@@ -82,6 +90,9 @@ Define a RootFactory in your ``models.py``::
 
 Now register ``get_acl_group()`` function in the config registry to make authorization work. Put in your main method::
 
+    def get_acl_group(request):
+        return ('view',)
+
     def main(global_config, **settings):
         """Main app configuration binding."""
 
@@ -106,13 +117,15 @@ Now register ``get_acl_group()`` function in the config registry to make authori
 .. _`principals`: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/glossary.html#term-principal
 .. _`security`: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/security.html
 .. _`tutorial`: http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/tutorials/wiki2/authorization.html
+.. _`pyramid_odesk_example`: https://github.com/kipanshi/pyramid_odesk_example
 
-You can provide custom ``forbidden.jinja2`` template using followin setting in your ``*.ini`` file::
+You can provide custom ``forbidden.jinja2`` template by overriding asset in your ``__init__.py``::
 
-    # Custom template for forbidden view
-    odesk.forbidden_template = templates/my_forbidden.jinja2
+    # Override forbidden template                                                                                                                                                                   config.override_asset(
+        to_override='pyramid_odesk:templates/forbidden.jinja2',
+        override_with='myapp:templates/forbidden.jinja2')
 
-See example in `pyramid_odesk/templates/forbidden.jinja2`_.
+See template example in `pyramid_odesk/templates/forbidden.jinja2`_.
 
 .. _`pyramid_odesk/templates/forbidden.jinja2`: https://github.com/kipanshi/pyramid_odesk/tree/master/pyramid_odesk/templates/forbidden.jinja2
 
