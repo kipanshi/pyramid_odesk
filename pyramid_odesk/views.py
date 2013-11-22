@@ -20,8 +20,8 @@ class BaseHandler(object):
         method = self.request.method
         try:
             return getattr(self, method.lower())()
-        except (AttributeError, NotImplementedError):
-            raise HTTPMethodNotAllowed
+        except NotImplementedError:
+            raise HTTPMethodNotAllowed(method)
 
     def get(self):
         raise NotImplementedError

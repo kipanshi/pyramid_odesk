@@ -1,6 +1,9 @@
+1.1.1
+-----
+- Fix ``BaseHandler`` obscuring ``AttributeError`` during dispatch
+
 1.1
 ---
-
 - Use ``override_offset`` for overriding ``forbidden.jinja2`` template.
 - If user is authenticated but is not authrized for some view,
   render ``forbidden`` page with **Log out** link instead of redirect
@@ -8,5 +11,4 @@
 
 1.0
 ---
-
 - Initial version.
