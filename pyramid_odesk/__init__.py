@@ -4,7 +4,7 @@ from pyramid.authentication import SessionAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 
 
-from .views import login, logout, oauth_callback, forbidden
+from .views import Login, Logout, OauthCallback, forbidden
 
 
 def includeme(config):
@@ -48,22 +48,22 @@ def includeme(config):
     config.registry['odesk.login_route'] = login_route
     login_path = settings.get('odesk.login_path', '/odesk-auth/login')
     config.add_route(login_route, login_path)
-    config.add_view(login, route_name=login_route,
-                    permission='login')
+    config.add_view(Login, route_name=login_route,
+                    permission='login', check_csrf=True)
 
     logout_route = settings.get('odesk.logout_route', 'logout')
     config.registry['odesk.logout_route'] = logout_route
     logout_path = settings.get('odesk.logout_path', '/odesk-auth/logout')
     config.add_route(logout_route, logout_path)
-    config.add_view(logout, route_name=logout_route,
-                    permission=NO_PERMISSION_REQUIRED)
+    config.add_view(Logout, route_name=logout_route,
+                    permission=NO_PERMISSION_REQUIRED, check_csrf=True)
 
     callback_route = settings.get('odesk.callback_route', 'oauth_callback')
     config.registry['odesk.logout_route'] = callback_route
     callback_path = settings.get('odesk.callback_path',
                                  '/odesk-auth/callback')
     config.add_route(callback_route, callback_path)
-    config.add_view(oauth_callback, route_name=callback_route,
+    config.add_view(OauthCallback, route_name=callback_route,
                     permission='login')
 
     # A simple 403 view, with a login button.

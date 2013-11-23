@@ -1,3 +1,8 @@
+1.1.2
+-----
+- Login and Logout actions are performed via POST and has protection
+  against CSRF attacks
+
 1.1.1
 -----
 - Fix ``BaseHandler`` obscuring ``AttributeError`` during dispatch

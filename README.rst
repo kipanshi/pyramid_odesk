@@ -127,7 +127,11 @@ You can provide custom ``forbidden.jinja2`` template by overriding asset in your
 
 See template example in `pyramid_odesk/templates/forbidden.jinja2`_.
 
+The "Logout" action is done also via POST request with CSRF protection,
+see example of "Logout" buttion in `pyramid_odesk_example/templates/layout.jinja2`_.
+
 .. _`pyramid_odesk/templates/forbidden.jinja2`: https://github.com/kipanshi/pyramid_odesk/tree/master/pyramid_odesk/templates/forbidden.jinja2
+.. _`pyramid_odesk_example/templates/layout.jinja2`: https://github.com/kipanshi/pyramid_odesk_example/blob/master/pyramid_odesk_example/templates/layout.jinja2
 
 
 Contacts
