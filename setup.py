@@ -13,7 +13,7 @@ requires = [
 ]
 
 setup(name='pyramid_odesk',
-      version='1.1.2',
+      version='1.1.3',
       description='pyramid_odesk',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[

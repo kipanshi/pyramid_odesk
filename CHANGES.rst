@@ -1,3 +1,7 @@
+1.1.3
+-----
+- Store first and last name in the session for further usage in templates
+
 1.1.2
 -----
 - Login and Logout actions are performed via POST and has protection
