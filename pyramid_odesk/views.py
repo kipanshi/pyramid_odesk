@@ -86,9 +86,14 @@ class OauthCallback(BaseHandler):
             # Get user info
             user_info = client.auth.get_info()
             user_uid = user_info['auth_user']['uid']
+            first_name = user_info['auth_user']['first_name']
+            last_name = user_info['auth_user']['last_name']
 
-            # Store the user in session
+            # Store the user UID, first and last name in session
             remember(request, user_uid)
+            request.session['auth.first_name'] = first_name
+            request.session['auth.last_name'] = last_name
+
             # Store oauth access token in session
             request.session['auth.access_token'] = oauth_access_token
             request.session['auth.access_token_secret'] = \
