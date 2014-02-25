@@ -44,6 +44,8 @@ class Login(BaseHandler):
           is invoked, otherwise user is asked to login to oDesk.
 
         """
+        # Explicitly clean the session
+
         client = get_odesk_client(self.request)
         authorize_url = client.auth.get_authorize_url()
         # Save request tokens in the session
@@ -70,6 +72,14 @@ class OauthCallback(BaseHandler):
         request_token = request.session.pop('odesk_request_token', None)
         request_token_secret = request.session.pop(
             'odesk_request_token_secret', None)
+
+        # Sometimes it might be that session is broken and request tokens
+        # were not stored properly
+        if not (request_token or request_token_secret):
+            # Invalidate session, as something is wrong and redirect to
+            # login page
+            request.session.invalidate()
+            return HTTPFound('/')
 
         if verifier:
             client = get_odesk_client(

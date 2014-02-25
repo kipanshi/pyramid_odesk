@@ -1,3 +1,8 @@
+1.1.4
+-----
+- Implement bugfix for case when session is broken and
+  request token and secret are not set.
+
 1.1.3
 -----
 - Store first and last name in the session for further usage in templates
