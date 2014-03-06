@@ -1,3 +1,8 @@
+1.1.5
+-----
+- Due to oDesk Public API change we need to get user information now from
+  ``client.hr.get_user_me()``
+
 1.1.4
 -----
 - Implement bugfix for case when session is broken and
